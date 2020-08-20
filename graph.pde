@@ -1,7 +1,8 @@
 
+PVector numOfCells, boarderSize;
 
-
-void setup(){
+void setup()
+{
   size(400,400);
   numOfCells = new PVector(30,30);
   boarderSize = new PVector(0.6*width,0.6*height);
@@ -9,7 +10,8 @@ void setup(){
 }
 
 
-void draw(){
+void draw()
+{
   
   background(230);
   
@@ -22,11 +24,7 @@ void draw(){
   
   gridBoarder();
   
-  for(i = 0; i < numOfCells.x; i++){
-    for(j = 0; j < numOfCells.y; i++){
-     rect(i * (boarderSize.x / numOfCells.x),j * (boarderSize.y / numOfCells.y), (i + 1) * (boarderSize.x / numOfCells.x),(j + 1) * (boarderSize.y / numOfCells.y));
-    }
-  }
+  createGridVisual();
   
   popMatrix();
   
@@ -35,11 +33,21 @@ void draw(){
 
 
 
-void gridBoarder(){
+void gridBoarder()
+{
   
   
   fill(210);
   rect(0,0,width*0.6,height*0.6);
   
   
+}
+
+void createGridVisual()
+{
+  for(int i = 0; i < numOfCells.x; i++){
+    for(int j = 0; j < numOfCells.y; j++){
+     rect(i * (boarderSize.x / numOfCells.x),j * (boarderSize.y / numOfCells.y), (i + 1) * (boarderSize.x / numOfCells.x),(j + 1) * (boarderSize.y / numOfCells.y));
+    }
+  }
 }
