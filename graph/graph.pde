@@ -19,13 +19,16 @@ void draw()
 
   pushMatrix();
   translate(0.2*width, 0.8*height);
-  rotate(radians(270));
+  scale(1,-1);
 
   createGridVisual();
 
   gridBoarder();
+  
   drawArrow(0, 0, boarderSize.x, 0);
   drawArrow(0, 0, 0, boarderSize.y);
+  
+  //loop is just for example 
   for(float i = 0; i < sqrt(numOfCells.y) ; i += 0.001){
     
     float y = sq(i);
@@ -54,7 +57,7 @@ void createGridVisual()
   pushMatrix();
   for (int i = 0; i < numOfCells.x; i++) {
     for (int j = 0; j < numOfCells.y; j++) {
-      stroke(245);
+      stroke(220);
       strokeWeight(1);
       rect(i * (boarderSize.x / numOfCells.x), j * (boarderSize.y / numOfCells.y), boarderSize.x / numOfCells.x, boarderSize.y / numOfCells.y);
     }
@@ -84,7 +87,7 @@ void plotLine(float x, float y)
 {
   pushMatrix();
   stroke(255, 0, 0);
-  strokeWeight(6);
-  point(y*(boarderSize.y/numOfCells.y),x*(boarderSize.x/numOfCells.x));
+  strokeWeight(2);
+  point(x*(boarderSize.x/numOfCells.x), y*(boarderSize.y/numOfCells.y));
   popMatrix();
 }
